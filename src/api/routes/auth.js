@@ -1,9 +1,6 @@
 const { Router } = require('express');
-const { register, login } = require('../modules/auth');
-const { getUsers } = require('../modules/getUsers');
+const { register, login } = require('../../modules/auth');
 const router = Router();
-
-router.get("/", getUsers);
 
 router.post("/register", register);
 

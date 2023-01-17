@@ -1,7 +1,7 @@
 const Users = require('../connections/main');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const salt = bcrypt.genSalt(10);
+const { AES } = require('../crypto/crypto');
+const key = "n2r5u8x/A?D(G+KaPdSgVkYp3s6v9y$B"
 
 module.exports = {
     register(req, res){
@@ -14,11 +14,12 @@ module.exports = {
             
             const user = {
               email: req.body.email,
-              password: req.body.password,
+              password: AES.encode(req.body.password, key),
             };
     
+
             Users.push(user);
-            res.status(200).send('User successfuly pushed!');
+            res.status(200).send(user);
         } catch (e) {
             const error = new Error(e);
             res.status(400).send({error: error.message});
@@ -30,7 +31,7 @@ module.exports = {
             const user = Users.find(obj => req.body.email === obj.email);
             if (!user) return res.status(400).send("Email is wrong");
     
-            const validPass = (req.body.password === user.password);
+            const validPass = (req.body.password === AES.decode(user.password, key));
             if (!validPass) return res.status(400).send("Password is wrong");
     
             //Create and assign a token
