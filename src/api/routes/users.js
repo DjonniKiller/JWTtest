@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAll } = require('../../modules/users');
+const { getAll } = require('../../controllers/users');
 const router = Router();
 
 router.get('/getAll', getAll);

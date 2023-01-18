@@ -1,7 +1,7 @@
 const Users = require('../connections/main');
 const jwt = require('jsonwebtoken');
 const { AES } = require('../crypto/crypto');
-const key = "n2r5u8x/A?D(G+KaPdSgVkYp3s6v9y$B"
+const keys = require('../config/keys');
 
 module.exports = {
     register(req, res){
@@ -14,7 +14,7 @@ module.exports = {
             
             const user = {
               email: req.body.email,
-              password: AES.encode(req.body.password, key),
+              password: AES.encode(req.body.password, keys.crypto),
             };
     
 
@@ -31,12 +31,16 @@ module.exports = {
             const user = Users.find(obj => req.body.email === obj.email);
             if (!user) return res.status(400).send("Email is wrong");
     
-            const validPass = (req.body.password === AES.decode(user.password, key));
+            const validPass = (req.body.password === AES.decode(user.password, keys.crypto));
             if (!validPass) return res.status(400).send("Password is wrong");
     
             //Create and assign a token
-            const token = jwt.sign({ _id: user.id }, 'shhhhh');
-            res.header("auth-token", token).send(token);
+            const token = jwt.sign({
+                id: user.id,
+                email: user.email
+            }, keys.jwt, { expiresIn: 60 * 10 });
+
+            res.status(200).send({token: `Bearer ${token}`});
         } catch (e) {
             const error = new Error(e);
             res.status(400).send({error: error.message});
