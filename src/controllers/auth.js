@@ -38,7 +38,7 @@ module.exports = {
             const token = jwt.sign({
                 id: user.id,
                 email: user.email
-            }, keys.jwt, { expiresIn: 60 * 10 });
+            }, keys.jwt, { expiresIn: 60 });
 
             res.status(200).send({token: `Bearer ${token}`});
         } catch (e) {
