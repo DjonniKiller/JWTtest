@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const AuthRoutes = require('./routes/auth');
 const UsersRoutes = require('./routes/users');
-const passport = require('passport');
 const middleware = require('../middleware/token');
 const router = Router();
 

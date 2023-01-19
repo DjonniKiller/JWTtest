@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
         const nowTime = new Date()/1000;
         if (nowTime > token.exp) throw 'Expired token!';
 
-        res.status(200).send({Token: decode, nowTime: nowTime, tokenTime: token.exp});
+        next();
     } catch (e) {
         res.status(403).send(new Error(e).message);
     }
