@@ -1,5 +1,4 @@
 const users = require('../connections/main');
-const keys = require('../config/keys');
 const jwt = require('jsonwebtoken');
 
 module.exports = async (req, res, next) => {
@@ -8,7 +7,7 @@ module.exports = async (req, res, next) => {
         token = token.replace('Bearer ', '');
         if (!token) throw 'Cannot get token!';
 
-        const decode = jwt.verify(token, keys.jwt);
+        const decode = jwt.verify(token, process.env.JWT);
         if (!decode) throw 'Decoding error!';
 
         const userExist = users.find(el => el.email === decode.email);

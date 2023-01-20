@@ -7,7 +7,7 @@ const ApiRoutes = require('./api/api');
 dotenv.config();
 
 const app = express();
-const PORT = 8080;
+const PORT = 5000;
 
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));

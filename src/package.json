@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "migrate": "knex migrate:latest --env mainConnection"
   },
   "author": "",
   "license": "ISC",
@@ -16,9 +17,11 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "knex": "^2.4.1",
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
+    "pg": "^8.8.0",
     "uuid": "^9.0.0"
   }
 }
