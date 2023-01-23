@@ -1,9 +1,9 @@
-const Users = require('../connections/main');
 const jwt = require('jsonwebtoken');
 const { AES } = require('../crypto/crypto');
+const knex = require('knex');
 
 module.exports = {
-    register(req, res){
+    async register(req, res){
         try {
             const { email, password } = req.body;
             if (!email || !password) throw 'Error to get body params';
@@ -11,23 +11,19 @@ module.exports = {
             const emailExist = Users.find( obj => email === obj.email);
             if (emailExist) throw 'Email is already registered!';
             
-            const user = {
-              email: req.body.email,
-              password: AES.encode(req.body.password, process.env.CRYPTO),
-            };
-    
+            const encodedPassword = AES.encode(req.body.password, process.env.CRYPTO);
 
-            Users.push(user);
-            res.status(200).send(user);
+            await knex('users').insert({email: email, password: encodedPassword});
+            res.status(200).send('User inserted!');
         } catch (e) {
             const error = new Error(e);
             res.status(400).send({error: error.message});
         }
     },
 
-    login(req, res){
+    async login(req, res){
         try {
-            const user = Users.find(obj => req.body.email === obj.email);
+            const user = await knex('users').where('email', req.body.email);
             if (!user) return res.status(400).send("Email is wrong");
     
             const validPass = (req.body.password === AES.decode(user.password, process.env.CRYPTO));
