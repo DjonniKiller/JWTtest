@@ -9,7 +9,11 @@ module.exports = {
             database: 'JWT-test'
         },
         migrations: {
+            directory: './database/migrations',
             tableName: 'migrations'
+        },
+        seeds: {
+            directory: './database/seeds'
         }
     }
 }

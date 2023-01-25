@@ -6,11 +6,13 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "migrate": "knex migrate:latest --env mainConnection"
+    "migrate": "knex migrate:latest --env mainConnection",
+    "seed": "knex seed:run --env mainConnection"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vscode/sqlite3": "^5.1.2-vscode",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "crypto": "^1.0.1",
@@ -22,6 +24,7 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.8.0",
+    "sqlite3": "^5.1.4",
     "uuid": "^9.0.0"
   }
 }

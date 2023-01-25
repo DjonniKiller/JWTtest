@@ -1,6 +1,5 @@
-const users = require('../connections/main');
+const connection = require('../database/mainConnection');
 const jwt = require('jsonwebtoken');
-const knex = require('knex');
 
 module.exports = async (req, res, next) => {
     try {
@@ -11,7 +10,7 @@ module.exports = async (req, res, next) => {
         const decode = jwt.verify(token, process.env.JWT);
         if (!decode) throw 'Decoding error!';
 
-        const userExist = await knex('users').where('email', decode.email);
+        const userExist = await connection('users').where('email', decode.email).first();
         if (!userExist) throw 'Cannot find user!';
 
         const nowTime = new Date()/1000;

@@ -1,10 +1,9 @@
-const connection = require('../connections/main');
-const knex = require('knex');
+const connection = require('../database/mainConnection');
 
 module.exports = {
     async getAll(_, res){
         try{
-            const users = await knex('users').select();
+            const users = await connection('users').select();
             res.send(users);
         }catch(e){
             res.status(400).send(new Error(e).message);
