@@ -1,10 +1,15 @@
-const connection = require('../database/mainConnection');
+const { connection } = require('../database/mainConnection');
 
 module.exports = {
     async getAll(_, res){
         try{
-            const users = await connection('users').select();
-            res.send(users);
+            const users = await connection('users')
+            .select('*')
+            .then((users) => {
+                return res.json(users);
+            });
+            
+            res.status(200).send(users);
         }catch(e){
             res.status(400).send(new Error(e).message);
         }
@@ -12,7 +17,7 @@ module.exports = {
 
     deleteUser(req, res){
         try {
-            connection.splice(req.params.id, 1);
+            
         } catch (e) {
             res.status(400).send(new Error(e).message);
         }

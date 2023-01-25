@@ -1,4 +1,4 @@
-const connection = require('../database/mainConnection');
+const { connection } = require('../database/mainConnection');
 const jwt = require('jsonwebtoken');
 
 module.exports = async (req, res, next) => {

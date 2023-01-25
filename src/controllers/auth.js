@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const { AES } = require('../crypto/crypto');
-const knex = require('knex');
 const { connection } = require('../database/mainConnection');
 
 module.exports = {
@@ -24,17 +23,17 @@ module.exports = {
 
     async login(req, res){
         try {
-            const user = await connection('users').where('email', req.body.email);
-            if (!user) return res.status(400).send("Email is wrong");
+            const user = await connection('users').where('email', req.body.email).first();
+            if (!user) throw 'Wrong password or email!';
     
             const validPass = (req.body.password === AES.decode(user.password, process.env.CRYPTO));
-            if (!validPass) return res.status(400).send("Password is wrong");
+            if (!validPass) throw 'Wrong password or email!';
     
             //Create and assign a token
             const token = jwt.sign({
                 id: user.id,
                 email: user.email
-            }, process.env.JWT, { expiresIn: 60 });
+            }, process.env.JWT, { expiresIn: 60*30 });
 
             res.status(200).send({token: `Bearer ${token}`});
         } catch (e) {
