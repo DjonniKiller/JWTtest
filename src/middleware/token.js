@@ -5,11 +5,13 @@ const error = 'Authencation error!';
 module.exports = async (req, res, next) => {
     try {
         //Getting token from request
-        let token = req.get('Authorization');
+        let token = req.headers.cookie.split('=');
         if (!token) throw error;
+        console.log(token);
 
         //Removing Bearer from token
-        token = token.replace('Bearer ', '');
+        token = token[1].split('Bearer%')[1];
+        console.log(token);
 
         //Decoding token to get data
         const decode = jwt.verify(token, process.env.JWT);

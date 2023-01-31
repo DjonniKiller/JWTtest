@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../styles/profile.css">
+    <script src="../scripts/profile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../helpers/parse-cookie.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="nav_bar">
+            <button id="logout" class="logout" onclick="logout()">Logout</button>
+            <button id="showUsers" class="show_users" onclick="showUsers()">Show users</button>
+        </div>
+        <div class="user_info">
+            <img src="https://sun2-9.userapi.com/impg/qoaFLCDM9n6l_BRg7he1gVzWxO3H-yYgD5KbIg/rJSc1RowMSY.jpg?size=720x1080&quality=96&sign=dd97085a9902e8e5a976c7b9747d5a0f&type=album">
+            <div class="about_user">
+                <h2 id="username">Евгений Рябко</h2>
+                <div class="another_info">
+                    <p id="email">jeniaryanko@mail.ru</p>
+                    <p id="phone">+79591898286</p>
+                </div>
+            </div>
+        </div>
+        <div class="publications_box">
+            <h2 class="title">Publications</h2>
+            <div class="publications">
+                <div>
+                    <h2>Publication name</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
+                        mollitia laudantium rem numquam libero quia beatae dolorum. 
+                        Sed molestiae provident quas rem doloribus.
+                    </p>
+                </div>
+                <div>
+                    <h2>Publication name</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
+                        mollitia laudantium rem numquam libero quia beatae dolorum. 
+                        Sed molestiae provident quas rem doloribus.
+                    </p>
+                </div>
+                <div>
+                    <h2>Publication name</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
+                        mollitia laudantium rem numquam libero quia beatae dolorum. 
+                        Sed molestiae provident quas rem doloribus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

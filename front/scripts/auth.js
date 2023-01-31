@@ -18,8 +18,8 @@ async function login(){
         });
 
         //Show response token
-        alert(res.data.token);
-        window.location.href='./home.html';
+        document.cookie=`Authorization=${res.data.token}; max-age=60`;
+        window.location.href='./profile.html';
     } catch(e) {
         const error = new Error(e.response.data.error);
         const status = e.response.status;
@@ -49,7 +49,6 @@ async function register(){
             }
         });
 
-        console.log(res);
         alert('Success!');
     } catch(e) {
         const error = new Error(e.response.data.error);
