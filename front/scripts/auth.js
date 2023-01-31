@@ -18,7 +18,7 @@ async function login(){
         });
 
         //Show response token
-        document.cookie=`Authorization=${res.data.token}; max-age=60`;
+        document.cookie=`Authorization=${res.data.token}; max-age=1800`;
         window.location.href='./profile.html';
     } catch(e) {
         const error = new Error(e.response.data.error);
