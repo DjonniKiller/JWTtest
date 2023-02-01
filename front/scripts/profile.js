@@ -9,11 +9,17 @@ async function showUsers(){
     try {
         const { Authorization } = parseCookie(document.cookie);
 
-        const res = await axios.get({
+        console.log(Authorization);
+
+        const res = await axios({
             method: 'get',
-            url: USERS_URL + '/getAll',
+            url: 'http://localhost:10001/api/users/getAll',
             headers: {
-                Authorization: Authorization
+                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+                //"Content-type": "Application/json"
+                //Authorization: Authorization
             }
         })
 

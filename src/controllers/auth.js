@@ -34,8 +34,8 @@ module.exports = {
                 id: user.id,
                 email: user.email
             }, process.env.JWT, { expiresIn: 60*30 });
-            
-            res.status(200).send({token: `Bearer ${token}`});
+
+            res.status(200).send({token: token});
         } catch (e) {
             const error = new Error(e);
             res.status(400).send({error: error.message});
