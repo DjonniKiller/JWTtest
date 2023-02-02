@@ -21,7 +21,7 @@ module.exports = {
             await connection('users').where('id', id).del();
             res.status(200).send('Deleted');
         } catch (e) {
-            res.status(400).send(new Error(e).message);
+            res.status(400).send({error: new Error(e).message});
         }
     },
 
@@ -33,7 +33,7 @@ module.exports = {
             const user = await connection('users').where('id', id).first();
             res.status(200).send(user);
         } catch (e) {
-            res.status(400).send(new Error(e).message);
+            res.status(400).send({error: new Error(e).message});
         }
     },
 
@@ -49,7 +49,7 @@ module.exports = {
             const user = await connection('users').where('id', decode.id).first();
             res.status(200).send(user);
         } catch(e) {
-            res.status(400).send(new Error(e).message);
+            res.status(400).send({error: new Error(e).message});
         }
     }
 }

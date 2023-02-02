@@ -9,7 +9,7 @@
     display: flex;
     width: 100%;
     height: 100vh;
-    background: #e0e0e0;
+    background: #141414;
     align-items: center;
     justify-content: center;
 }
@@ -18,8 +18,8 @@
     min-width: 50%;
     height: 60vh;
     min-height: 300px;
-    background: #eeeeee;
-    box-shadow: 0 0 20px gray;
+    background: #222222;
+    box-shadow: 0 0 20px #222222;
     padding-top: 50px;
 }
 
@@ -29,10 +29,27 @@
 }
 
 .auth_block input {
+    background: transparent;
+    border: 1px solid #e1e3e6;
+    color: #e1e3e6;
     min-width: 50%;
     min-height: 30px;
     margin-left: 25%;
+    transition: 500ms;
 }
+
+.auth_block input:focus {
+    background: transparent;
+    border: 1px solid #71aaeb;
+    color: #e1e3e6;
+}
+
+.auth_block input:focus {
+    background: transparent;
+    border: 1px solid #71aaeb;
+    color: #e1e3e6;
+}
+
 
 .auth_block label {
     position: absolute;
@@ -42,15 +59,16 @@
     font-weight: 300;
     font-size: 1.5em;
     text-align: center;
+    color: #e1e3e6;
 }
 
 .auth_block button {
-    background-color: #e65100;
-    border: none;
+    background-color: transparent;
+    border: 1px solid #e1e3e6;
     min-width: 30%;
     height: 40px;
     min-height: 30px;
-    color: white;
+    color: #e1e3e6;
     font-weight: 400;
     font-family: 'Roboto';
     font-size: 1.2em;
@@ -60,6 +78,8 @@
 
 .auth_block button:hover {
     filter: brightness(85%);
+    color: #71aaeb;
+    border-color: #71aaeb;
 }
 
 .login_btn {
@@ -76,11 +96,12 @@
 
 .error_show {
     display: block;
+    background: transparent;
+    border: 1px solid #e1e3e6;
     min-width: 80%;
     margin: 0 10%;
     padding: 5px 20px;
     height: 50px;
-    color: red;
-    background-color: rgb(255, 200, 80);
+    color: #e1e3e6;
     font-size: 1.2rem;
 }

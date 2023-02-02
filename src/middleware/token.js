@@ -6,22 +6,22 @@ module.exports = async (req, res, next) => {
     try {
         //Getting token from request
         let token = req.get('Authorization');
-        if (!token) throw error;
+        if (!token) throw 'token';
 
         //Decoding token to get data
         const decode = jwt.verify(token, process.env.JWT);
-        if (!decode) throw error;
+        if (!decode) throw 'verify';
 
         //Checking if user exist
         const userExist = await connection('users').where('email', decode.email).first();
-        if (!userExist) throw error;
+        if (!userExist) throw 'getUser';
 
         //Checking for expired token
         const nowTime = new Date()/1000;
-        if (nowTime > token.exp) throw error;
+        if (nowTime > token.exp) throw 'exp';
 
         next();
     } catch (e) {
-        res.status(403).send(new Error(e).message);
+        res.status(403).send({error: new Error(e).message});
     }
 }
