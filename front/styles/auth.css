@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto';
 }
 
 .app {
@@ -14,7 +15,7 @@
     justify-content: center;
 }
 
-.auth_block {
+.login_block {
     min-width: 50%;
     height: 60vh;
     min-height: 300px;
@@ -23,12 +24,36 @@
     padding-top: 50px;
 }
 
+.link {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.link a {
+    color: #e1e3e6;
+    text-decoration: none;
+}
+
+.link a:hover {
+    color: #71aaeb;
+}
+
+.registration_block {
+    min-width: 50%;
+    height: 85vh;
+    min-height: 500px;
+    background: #222222;
+    box-shadow: 0 0 20px #222222;
+    padding-top: 20px;
+}
+
 .auth_param {
     position: relative;
     padding: 40px 0;
 }
 
-.auth_block input {
+.auth_input {
     background: transparent;
     border: 1px solid #e1e3e6;
     color: #e1e3e6;
@@ -38,56 +63,47 @@
     transition: 500ms;
 }
 
-.auth_block input:focus {
+.auth_input:focus {
     background: transparent;
     border: 1px solid #71aaeb;
     color: #e1e3e6;
 }
 
-.auth_block input:focus {
+.auth_input:focus {
     background: transparent;
     border: 1px solid #71aaeb;
     color: #e1e3e6;
 }
 
 
-.auth_block label {
+.auth_label {
     position: absolute;
     width: 100%;
     top: 5px;
-    font-family: 'Roboto';
     font-weight: 300;
     font-size: 1.5em;
     text-align: center;
     color: #e1e3e6;
 }
 
-.auth_block button {
+button {
     background-color: transparent;
     border: 1px solid #e1e3e6;
+    margin-left: 35%;
     min-width: 30%;
     height: 40px;
     min-height: 30px;
     color: #e1e3e6;
     font-weight: 400;
-    font-family: 'Roboto';
     font-size: 1.2em;
-    margin-top: 20px;
+    margin-top: 10px;
     transition: 200ms;
 }
 
-.auth_block button:hover {
+button:hover {
     filter: brightness(85%);
     color: #71aaeb;
     border-color: #71aaeb;
-}
-
-.login_btn {
-    margin-left: 20%;
-}
-
-.registration_btn {
-    margin-left: 5%;
 }
 
 .error_hidden {

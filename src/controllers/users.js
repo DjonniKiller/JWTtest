@@ -39,15 +39,14 @@ module.exports = {
 
     async profile(req, res){
         try{
-            let token = req.get('Authorization');
+            const token = req.get('Authorization');
             if (!token) throw error;
-            token = token.replace('Bearer ', '');
 
             const decode = jwt.verify(token, process.env.JWT);
             if (!decode) throw error;
 
             const user = await connection('users').where('id', decode.id).first();
-            res.status(200).send(user);
+            res.status(200).send({user: user});
         } catch(e) {
             res.status(400).send({error: new Error(e).message});
         }
