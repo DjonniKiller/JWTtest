@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
-    "migrate": "knex migrate:latest --env mainConnection && knex seed:run --env mainConnection"
+    "migrate": "knex migrate:latest --env mainConnection && knex seed:run --env mainConnection",
+    "migrate:rollback": "knex migrate:rollback --all --env mainConnection"
   },
   "author": "",
   "license": "ISC",

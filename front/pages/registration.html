@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход/Регистрация</title>
-    <script src="../scripts/auth.js"></script>
+    <title>Регистрация</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/auth.js"></script>
     <link rel="stylesheet" href="../styles/auth.css">
 </head>
 <body>
     <div class="app">
-        <div class="registration_block">
+        <form action="" class="registration_block" id="registration_form">
             <div class="auth_param">
-                <label for="password" class="auth_label">Username</label>
-                <input type="password" class="auth_input" id="password">
+                <label for="username" class="auth_label">Username</label>
+                <input type="text" class="auth_input" id="username" maxlength="20" required="true" autocomplete="off">
             </div>
             <div class="auth_param">
                 <label for="email" class="auth_label"> E-mail </label>
-                <input type="email" class="auth_input" id="email">
+                <input type="email" class="auth_input" id="email" required="true" autocomplete="off">
             </div>
             <div class="auth_param">
                 <label for="password" class="auth_label">Password</label>
-                <input type="password" class="auth_input" id="password">
+                <input type="password" class="auth_input" id="password" maxlength="20" required="true" autocomplete="off">
             </div>
             <div class="auth_param">
-                <label for="password" class="auth_label">Phone(optional)</label>
-                <input type="password" class="auth_input" id="password">
+                <label for="phone" class="auth_label">Phone(optional)</label>
+                <input type="text" class="auth_input" id="phone" maxlength="20">
             </div>
             <div id="errorDiv" class="error_hidden">
 
             </div>
-            <button id="register" class="registration_btn" onclick="register()">Регистрация</button>
+            <button id="register" type="submit" class="registration_btn">Регистрация</button>
             <div class="link">
                 <a href="./login.html">Уже есть аккаунт?</a>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>

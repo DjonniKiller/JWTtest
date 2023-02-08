@@ -1,3 +1,16 @@
+$(function() {
+    $('#registration_form').submit((e) => {
+        e.preventDefault();
+        register();
+    });
+
+    $('#login_form').submit((e) => {
+        e.preventDefault();
+        login();
+    });
+});
+ 
+
 async function login(){
     //Authentication values
     const email = document.getElementById('email').value;
@@ -34,6 +47,8 @@ async function register(){
     //Authentication values
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const username = document.getElementById('username').value;
+    const phone = document.getElementById('phone').value;
 
     //Div that shows auth errors
     const errorDiv = document.getElementById('errorDiv');
@@ -44,8 +59,10 @@ async function register(){
             method: 'post',
             url: `http://localhost:10001/api/auth/register`,
             data: {
+                username: username,
                 email: email,
-                password: password
+                password: password,
+                phone: phone
             }
         });
 

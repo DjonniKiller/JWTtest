@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Моя страница</title>
     <link rel="stylesheet" href="../styles/profile.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="../scripts/profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../helpers/parse-cookie.js"></script>
@@ -16,42 +18,59 @@
             <button id="logout" class="logout" onclick="logout()">Logout</button>
             <button id="showUsers" class="show_users" onclick="showUsers()">Show users</button>
         </div>
-        <div class="user_info">
-            <img src="https://sun2-9.userapi.com/impg/qoaFLCDM9n6l_BRg7he1gVzWxO3H-yYgD5KbIg/rJSc1RowMSY.jpg?size=720x1080&quality=96&sign=dd97085a9902e8e5a976c7b9747d5a0f&type=album">
-            <div class="about_user">
-                <h2 id="username">Евгений Рябко</h2>
-                <div class="another_info">
-                    <p id="email">jeniaryanko@mail.ru</p>
-                    <p id="phone">+79591898286</p>
-                </div>
+        <div class="main_block">
+            <div class="menu">
+                <ul>
+                    <li><a href="./profile.html">Главная</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Сообщения</a></li>
+                    <li><a href="">Друзья</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="publications_box">
-            <h2 class="title">Publications</h2>
-            <div class="publications" id="publications">
-                <div>
-                    <h2>Publication name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
-                        mollitia laudantium rem numquam libero quia beatae dolorum. 
-                        Sed molestiae provident quas rem doloribus.
-                    </p>
+            <div>
+                <div class="user_info">
+                    <img src="../../profile_icon.jpg">
+                    <div class="about_user">
+                        <h2 id="username">Евгений Рябко</h2>
+                        <div class="another_info">
+                            <p id="email">jeniaryanko@mail.ru</p>
+                            <p id="phone">+79591898286</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h2>Publication name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
-                        mollitia laudantium rem numquam libero quia beatae dolorum. 
-                        Sed molestiae provident quas rem doloribus.
-                    </p>
-                </div>
-                <div>
-                    <h2>Publication name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
-                        mollitia laudantium rem numquam libero quia beatae dolorum. 
-                        Sed molestiae provident quas rem doloribus.
-                    </p>
+                <div class="publications_box">
+                    <h2 class="title">Publications</h2>
+                    <div class="post_create">
+                        <textarea class="header" id="header"></textarea>
+                        <textarea class="text" id="text"></textarea>
+                        <button class="publicate_btn" id="publicate" onclick="publicatePost()">Опубликовать</button>
+                    </div>
+                    <div class="publications" id="publications">
+                        <div>
+                            <h2>Publication name</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
+                                mollitia laudantium rem numquam libero quia beatae dolorum. 
+                                Sed molestiae provident quas rem doloribus.
+                            </p>
+                        </div>
+                        <div>
+                            <h2>Publication name</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
+                                mollitia laudantium rem numquam libero quia beatae dolorum. 
+                                Sed molestiae provident quas rem doloribus.
+                            </p>
+                        </div>
+                        <div>
+                            <h2>Publication name</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Velit, officiis obcaecati. Expedita, ipsam! Id nihil consectetur 
+                                mollitia laudantium rem numquam libero quia beatae dolorum. 
+                                Sed molestiae provident quas rem doloribus.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

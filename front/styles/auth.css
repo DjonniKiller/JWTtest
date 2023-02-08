@@ -16,7 +16,8 @@
 }
 
 .login_block {
-    min-width: 50%;
+    min-width: 500px;
+    width: 50%;
     height: 60vh;
     min-height: 300px;
     background: #222222;
@@ -40,9 +41,10 @@
 }
 
 .registration_block {
-    min-width: 50%;
-    height: 85vh;
-    min-height: 500px;
+    min-width: 600px;
+    width: 50%;
+    height: 90vh;
+    min-height: 550px;
     background: #222222;
     box-shadow: 0 0 20px #222222;
     padding-top: 20px;
@@ -56,25 +58,31 @@
 .auth_input {
     background: transparent;
     border: 1px solid #e1e3e6;
+    font-size: 1.3rem;
     color: #e1e3e6;
     min-width: 50%;
     min-height: 30px;
     margin-left: 25%;
+    padding: 0 10px;
     transition: 500ms;
 }
 
 .auth_input:focus {
+    outline: none;
     background: transparent;
     border: 1px solid #71aaeb;
-    color: #e1e3e6;
+    box-shadow: 0 0 5px #71aaeb;
 }
 
-.auth_input:focus {
-    background: transparent;
-    border: 1px solid #71aaeb;
-    color: #e1e3e6;
+input:-webkit-autofill,
+      -webkit-autofill:focus {
+    background: transparent !important;
 }
 
+input:-webkit-autofill:focus {
+    background-color: rgb(232, 240, 254) !important;
+    -webkit-appearance: none;
+}
 
 .auth_label {
     position: absolute;

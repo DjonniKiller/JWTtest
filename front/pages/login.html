@@ -4,30 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход/Регистрация</title>
+    <title>Вход</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="../scripts/auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../styles/auth.css">
 </head>
 <body>
     <div class="app">
-        <div class="login_block">
+        <form class="login_block" id="login_form">
             <div class="auth_param">
                 <label for="email" class="auth_label"> E-mail </label>
-                <input type="email" class="auth_input" id="email">
+                <input type="email" class="auth_input" id="email" maxlength="20" autocomplete="off">
             </div>
             <div class="auth_param">
                 <label for="password" class="auth_label">Password</label>
-                <input type="password" class="auth_input" id="password">
+                <input type="password" class="auth_input" id="password" maxlength="20">
             </div>
             <div id="errorDiv" class="error_hidden">
 
             </div>
-            <button id="login" class="login_btn" onclick="login()" >Вход</button>
+            <button type="submit" id="login" class="login_btn">Вход</button>
             <div class="link">
                 <a href="./registration.html">Нет аккаунта?</a>   
             </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>
