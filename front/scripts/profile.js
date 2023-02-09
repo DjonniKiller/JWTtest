@@ -1,5 +1,5 @@
 const USERS_URL = 'http://localhost:10001/api/users';
-const POSTS_URL = 'http://localhost:10001/api/posts'
+const POSTS_URL = 'http://localhost:10001/api/posts';
 
 function logout(){
     //Clearing cookies
@@ -59,7 +59,7 @@ window.onload = async ()=>{
         //Get publication div element
         const publicationsDiv = document.getElementById('publications');
 
-        //Clear it't innerHTML
+        //Clear it's innerHTML
         publicationsDiv.innerHTML = '';
 
         //Get all posts by user id
@@ -82,7 +82,10 @@ window.onload = async ()=>{
     } catch(e) {
         const error = new Error(e.response.data.error);
         const status = e.response.status;
-        alert(`Error${status}: ${error.message}`);
+
+        if (e.response.data.error === 'Authencation error!') logout();
+
+        console.log(`Error${status}: ${error.message}`);
     }
 }
 
@@ -102,7 +105,7 @@ async function showUsers(){
     } catch (e) {
         const error = new Error(e.response.data.error);
         const status = e.response.status;
-        alert(`Error${status}: ${error.message}`);
+        console.log(`Error${status}: ${error.message}`);
     }
 }
 
@@ -130,6 +133,6 @@ async function publicatePost(){
     } catch (e) {
         const error = new Error(e.response.data.error);
         const status = e.response.status;
-        alert(`Error${status}: ${error.message}`);
+        console.log(`Error${status}: ${error.message}`);
     }
 }

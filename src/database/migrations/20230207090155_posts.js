@@ -7,9 +7,10 @@ exports.up = function(knex) {
     table.increments('id').primary().comment('Идентификатор публикации')
     table.string('header').comment('Заголовок публикации')
     table.string('text', 1000).comment('Содержание публикации')
-    table.integer('user').notNullable().comment('Автор публикации')
+    table.integer('author').notNullable().comment('Автор публикации')
+    table.timestamp('created_at').defaultTo(knex.fn.now())
 
-    table.foreign('user')
+    table.foreign('author')
         .references('users.id')
         .onUpdate('Cascade')
         .onDelete('Cascade')

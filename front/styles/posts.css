@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+.app {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#141414;
+    min-width: 1000px; display: flex;
+    width: 100%;
+}
+
+.posts_block {
+    min-height: 100vh;
+    min-width: 800px;
+    width: 80%;
+}
+
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 20px 0;
+    color: #e1e3e6;
+    background-color: #222222;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.info .author {
+    padding: 5px;
+}
+
+.info .author .name {
+    font-size: 0.9rem;
+    color: #71aaeb;
+}
+
+.info .author .timestamp {
+    font-size: 0.8rem;
+    color: #bdbdbd;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.icon_div {
+    min-width: 50px;
+    margin-right: 20px;
+}
+
+.post_data {
+    min-width: 90%;
+    width: 90%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post_data h2, p {
+    width: 100%;
+}
+
+.post_data h2 {
+    margin: 10px 0 40px 0;
+}
+
+.post_data p {
+    margin-bottom: 40px;
+}

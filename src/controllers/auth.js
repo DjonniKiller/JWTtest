@@ -51,7 +51,7 @@ module.exports = {
             const token = jwt.sign({
                 id: user.id,
                 email: user.email
-            }, process.env.JWT, { expiresIn: 60*30 });
+            }, process.env.JWT, { expiresIn: 60 });
 
 
             await connection('users').where('email', req.body.email).first().update({token: token});

@@ -1,0 +1,23 @@
+.nav_bar {
+    display: flex;
+    background-color: #222222;
+    min-width: 1000px;
+    width: 100%;
+    height: 50px;
+    margin: 0 0 10px 0;
+    flex-direction: row-reverse;
+}
+
+.logout {
+    background: transparent;
+    border: none;
+    color: #e1e3e6;
+    width: 100px;
+    height: 100%;
+    font-size: 1.5rem;
+    transition: 200ms;
+}
+
+.logout:hover {
+    color: #71aaeb;
+}

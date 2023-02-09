@@ -22,6 +22,6 @@ module.exports = async (req, res, next) => {
 
         next();
     } catch (e) {
-        res.status(403).send({error: new Error(e).message});
+        res.status(403).send({error: 'Authencation error!'});
     }
 }

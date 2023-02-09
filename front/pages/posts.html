@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости</title>
+    <link rel="stylesheet" href="../styles/posts.css">
+    <link rel="stylesheet" href="../styles/menu.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/posts.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="nav_bar">
+            <button id="logout" class="logout" onclick="logout()">Logout</button>
+            <button id="showUsers" class="show_users" onclick="showUsers()">Show users</button>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="./profile.html">Главная</a></li>
+                <li><a href="./posts.html">Новости</a></li>
+                <li><a href="">Сообщения</a></li>
+                <li><a href="">Друзья</a></li>
+            </ul>
+        </div>
+        <div class="posts_block" id="posts"></div>
+</body>
+</html>

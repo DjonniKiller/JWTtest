@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     async getAll( _, res){
         try {
-            const posts = await connection('posts').select();
+            const posts = await connection('posts').select('users.username','posts.*').leftJoin('users', 'users.id', 'posts.author');
 
             res.status(200).send(posts);
         } catch (e) {
@@ -14,7 +14,7 @@ module.exports = {
 
     async getByAuthor(req, res){
         try {
-            const posts = await connection('posts').select().where('user', req.get('AuthorID'));
+            const posts = await connection('posts').select().where('author', req.get('AuthorID'));
 
             res.status(200).send(posts);
         } catch (e) {
@@ -31,7 +31,7 @@ module.exports = {
 
             console.log(decoded);
 
-            await connection('posts').insert({header: header, text: text, user: decoded.id});
+            await connection('posts').insert({header: header, text: text, author: decoded.id});
 
             res.status(200).send('Inserted');
         } catch (e) {
