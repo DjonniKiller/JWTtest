@@ -1,4 +1,4 @@
-.nav_bar {
+.nav_bar, nav {
     display: flex;
     background-color: #222222;
     min-width: 1000px;

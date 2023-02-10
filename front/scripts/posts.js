@@ -1,5 +1,16 @@
 const POSTS_URL = 'http://localhost:10001/api/posts'
 
+function compareDatesUpToDay(date1, date2){
+    const conditions = [];
+
+    conditions.push(date1.getFullYear() === date2.getFullYear());
+    conditions.push(date1.getMonth() === date2.getMonth());
+    conditions.push(date1.getDay() === date2.getDay());
+
+    if (conditions.every(el => el===true))  return true;
+    else return false;
+}
+
 function formatDate(date){
     //Getting post creating date and current date
     const timestamp = new Date(date);
@@ -15,7 +26,7 @@ function formatDate(date){
 
 
     //Checking for date coincidence
-    const condition = (currDate.getMonth() === timestamp.getMonth() && currDate.getDay() === timestamp.getDay());
+    const condition = compareDatesUpToDay(currDate, timestamp);
 
 
     //Creating formatted date
